@@ -1,0 +1,5 @@
+﻿  moc MyWiget.h
+  MyWiget.cpp
+  main.cpp
+  moc_MyWiget.cpp
+  QtGuiApplication1.vcxproj -> E:\SE_Project\PersonalProject2_SE\SE_2\Debug\QtGuiApplication1.exe

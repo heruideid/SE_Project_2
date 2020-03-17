@@ -1,7 +1,6 @@
-﻿#include"obj.h"
-#include<cmath>
-#include<iostream>
-using namespace std;
+﻿#pragma once
+#include"obj.h"
+
 
 inline vector<Point> return_points() {
 	return vector<Point>();
@@ -54,6 +53,30 @@ Segment::Segment(double x1, double y1, double x2, double y2) :Line(x1, y1, x2, y
 Circle::Circle(double x, double y, double r) :cx(x), cy(y), cr(r) {}
 
 
+string Line::display() {
+	string str="L "+to_string(A)+"x+"+to_string(B)+"y+"+to_string(C);
+	//TODO用正则美化表达式
+	return str;
+}
+
+string Ray::display() {
+	string str ="R "+to_string(A) + "x+" + to_string(B) + "y+" + to_string(C);
+	//TODO用正则美化表达式
+	return str;
+}
+
+string Segment::display() {
+	string str = "S " + to_string(A) + "x+" + to_string(B) + "y+" + to_string(C);
+	//TODO用正则美化表达式
+	return str;
+}
+
+string Circle::display() {
+	string str = "C (x-" + to_string(cx) + ")^2+(y-" + to_string(cy)+")^2="+to_string(cr*cr);
+	//TODO用正则美化表达式
+	return str;
+}
+
 
 bool Segment::islawful(Point& point) {
 	if (start_x == end_x) return (point.y >= start_y && point.y <= end_y);
@@ -70,7 +93,6 @@ bool Ray::islawful(Point& point) {
 		return start_x>=point.x;
 	}
 }
-
 
 
 
@@ -188,7 +210,6 @@ void Circle::upgrade_points(set<Point>& points, Circle& circle) {
 		}
 	}
 }
-
 
 
 
